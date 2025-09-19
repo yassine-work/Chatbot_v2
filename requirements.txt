@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+chromadb
+onnxruntime
+transformers
+python-dotenv
+redis
+numpy

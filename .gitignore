@@ -1,0 +1,25 @@
+# Ignore environment files with secrets
+env
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# Local chroma_data cache or database files (optional)
+chroma_data/
+
+# Ignore system files (optional)
+.DS_Store

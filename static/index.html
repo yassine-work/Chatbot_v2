@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Jar Chatbot</title>
+</head>
+<body>
+    <h1>Carbon Jar Chatbot</h1>
+    <input type="text" id="query" placeholder="Ask a question...">
+    <button onclick="sendQuery()">Think</button>
+    <div id="response"></div>
+    <script>
+        async function sendQuery() {
+            const query = document.getElementById('query').value;
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = 'Loading...';
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query })
+                });
+                const data = await response.json();
+                responseDiv.innerHTML = data.response;
+            } catch (error) {
+                responseDiv.innerHTML = 'Error: Unable to get response.';
+            }
+        }
+    </script>
+</body>
+</html>
